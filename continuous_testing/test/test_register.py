@@ -6,9 +6,9 @@ def test_input(monkeypatch):
     # Simulate user input for a registration flow.
     inputs = iter([
         "Alice",
-        "alicecompany.com",
-        "alice12345" # Missing special character, should trigger validation error.
-        "0"
+        "alice@company.com",
+        "alice12345!" # Valid password with all required characters.
+        "25"
     ])
 
     # Patch builtins.input so enter_data() consumes our predefined values.
