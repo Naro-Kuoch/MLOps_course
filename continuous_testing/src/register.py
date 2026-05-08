@@ -1,17 +1,23 @@
-    #username must not be empty and not contain space
-    #email must contain @ and . 
-    #pwd must be at least 8 characters, one number, one letter and one special char
+# username must not be empty and must not contain spaces.
+# email must contain an '@' symbol and a domain dot.
+# password must be at least 8 characters long, and include a number, a letter, and a special character.
+
 def validate_username(username):
+    """Validate that the username is non-empty and contains no spaces."""
     if username == '' or " " in username:
         raise ValueError("Username must not be empty and must not contain spaces")
     return username
+
 def validate_email(email):
+    """Validate that the email is non-empty and follows a simple email format."""
     if email == '' or " " in email:
         raise ValueError("Email must not be empty and must not contain spaces")
     if "@" not in email or "." not in email:
         raise ValueError("Invalid email format")
     return email
+
 def validate_password(pwd):
+    """Validate that the password meets basic strength requirements."""
     if len(pwd) < 8:
         raise ValueError("Password must be at least 8 characters long")
     if not any(char.isdigit() for char in pwd):
@@ -21,13 +27,18 @@ def validate_password(pwd):
     if not any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/" for char in pwd):
         raise ValueError("Password must contain at least one special character")
     return pwd
+
 def enter_data():
+    """Prompt the user for registration details and validate each field."""
     username = input("Enter your name: ")
     username = validate_username(username)
+
     email = input("Enter your email: ")
     email = validate_email(email)
+
     pwd = input("Enter your password: ")
     pwd = validate_password(pwd)
+
     return {
         "username": username,
         "email": email,
