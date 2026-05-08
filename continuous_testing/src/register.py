@@ -33,6 +33,5 @@ def enter_data():
         "email": email,
         "pwd": pwd
     }
-r = enter_data()
-print(r)
+
 
