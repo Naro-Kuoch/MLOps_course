@@ -27,6 +27,11 @@ def validate_password(pwd):
     if not any(char in "!@#$%^&*()-_=+[]{}|;:'\",.<>?/" for char in pwd):
         raise ValueError("Password must contain at least one special character")
     return pwd
+def validate_age(age):
+    """Validate that the age is a positive integer."""
+    if not age.isdigit() or int(age) <= 0:
+        raise ValueError("Age must be a positive integer")
+    return int(age)
 
 def enter_data():
     """Prompt the user for registration details and validate each field."""
@@ -38,11 +43,13 @@ def enter_data():
 
     pwd = input("Enter your password: ")
     pwd = validate_password(pwd)
+    age = input("Enter your age: ")
 
     return {
         "username": username,
         "email": email,
-        "pwd": pwd
+        "pwd": pwd,
+        "age": age
     }
 
 
