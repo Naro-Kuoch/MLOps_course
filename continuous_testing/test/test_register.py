@@ -7,8 +7,8 @@ def test_input(monkeypatch):
     inputs = iter([
         "Alice",
         "alice@company.com",
-        "alice12345!" # Valid password with all required characters.
-        "25"
+        "alice12345!", # Valid password with all required characters.
+        "25",
     ])
 
     # Patch builtins.input so enter_data() consumes our predefined values.
